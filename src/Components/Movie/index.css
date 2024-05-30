@@ -1,0 +1,163 @@
+.movies-container {
+  background-color: #000000;
+  width: 100%;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+.movie-top-container {
+  margin: 1% 2.5%;
+  width: 95%;
+}
+
+.movie-backdrop-img {
+  width: 95%;
+  border-radius: 10px;
+  height: 600px;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: absolute;
+}
+
+.movie {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-in-detail {
+  position: relative;
+  width: 100%;
+  padding: 1.5%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.poster-path-image {
+  width: 28%;
+}
+
+.movie-details-container{
+  width: 50%;
+}
+
+.movie-title {
+  margin: 8px 0;
+  padding: 6px 0px;
+  width: 60%;
+}
+
+.movie-genre-runtime-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.genres-continer{
+  display: flex;
+}
+
+.movie-runtime-container {
+  border: #ffffff solid 0.1px;
+  width: 70px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.overview {
+  width: 70%;
+  height: 172px;
+  overflow: hidden;
+}
+
+.hello {
+  color: #ffffff;
+  padding-left: 2%;
+  margin-top: 30px;
+}
+
+.rating-main {
+  color: blue;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.release-date{
+  width: 80%;
+}
+
+.loading-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 576px) {
+  .movie-backdrop-img {
+    display: none;
+  }
+
+  .movie {
+    width: 100%;
+  }
+
+  .movie-title{
+    margin: 0px;
+  }
+
+  .movie-top-container {
+    width: 95%;
+  }
+
+  .poster-path-image {
+    width: 40%;
+    border-radius: 5px;
+    height: 100%;
+  }
+  .overview {
+    width: 100%;
+  }
+
+  .movie-title{
+    font-size: 15px;
+  }
+
+  .movie-genre-runtime-container{
+    flex-direction: column;
+    align-items:baseline;
+    flex-wrap: wrap;
+  }
+
+  .movie-in-detail{
+    margin: 0px;
+  }
+
+  .movie-details-container{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .poster-path-image {
+    width: 35%;
+  }
+
+  .movie-top-container {
+    width: 80%;
+  }
+
+  .movie-in-detail {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .poster-path-image {
+    width: 15%;
+  }
+}

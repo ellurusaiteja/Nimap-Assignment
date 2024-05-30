@@ -1,0 +1,54 @@
+.movies-link {
+  text-decoration: none;
+  width: 100%;
+}
+
+p {
+  color: #fff;
+}
+
+li {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  margin: 25px 0px;
+  flex-direction: column;
+}
+
+.movie-image {
+  width: 100%;
+}
+.movie-heading {
+  color: #fff;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 13px;
+  margin: 5px 0px;
+}
+
+
+@media screen and (max-width: 768px){
+  li{
+    width: 40%;
+    margin: 5px 0px;
+  }
+
+  .movie-heading{
+    font-size: 13px;
+  }
+
+  .rating{
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  li{
+    width: 80%;
+  }
+}

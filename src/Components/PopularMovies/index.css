@@ -1,0 +1,13 @@
+.popular-movies-conntainer{
+    background-color: #000000;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.popular-route-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    font-family: 'Courier New', Courier, monospace;
+}
