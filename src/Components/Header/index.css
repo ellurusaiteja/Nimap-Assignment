@@ -41,23 +41,23 @@
   font-size: 13px;
 }
 
-.header-link{
+.header-link {
   text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
-  .mob-view{
+  .mob-view {
     display: none;
   }
 
-  .header-container{
-    padding: 1% 2.5%;
+  .header-container {
+    padding: 2% 2.5%;
     width: 95%;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .header-input{
+  .header-input {
     width: 120px;
-  }  
+  }
 }

@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { useLocation } from "react-router-dom";
 import Header from "../Header";
 import MovieDetails from "../MovieDetails";
 

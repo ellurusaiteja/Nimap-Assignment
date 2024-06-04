@@ -4,10 +4,3 @@
     color: #ffffff;
 }
 
-.popular-route-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    font-family: 'Courier New', Courier, monospace;
-}

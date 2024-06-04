@@ -1,29 +1,21 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-
-import "./index.css";
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { SearchContext } from '../SearchContext';
+import './index.css';
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const { updateSearchTerm } = useContext(SearchContext);
+  const navigate = useNavigate();
 
-  const handelInputChange = (event) => {
+  const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
-  const handleSearch = async () => {
-    if (searchTerm.trim() !== "") {
-      const API_KEY = "b069e111d85aacad7f4343d91ee8d3a4";
-      const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=1`;
 
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        const searchResults = data.results;
-      } catch (error) {
-        console.error("Error fetching search results:", error);
-      }
-    } else {
-      setSearchResults([]);
+  const handleSearch = () => {
+    if (searchTerm.trim() !== '') {
+      updateSearchTerm(searchTerm);
+      navigate('/search');
     }
   };
 
@@ -48,10 +40,9 @@ const Header = () => {
           className="header-input"
           placeholder="Movie Name"
           type="search"
-          onChange={handelInputChange}
           value={searchTerm}
+          onChange={handleInputChange}
         />
-
         <button className="header-search-button" onClick={handleSearch}>
           Search
         </button>
@@ -60,4 +51,4 @@ const Header = () => {
   );
 };
 
-export default (Header);
+export default Header;
