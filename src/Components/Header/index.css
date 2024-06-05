@@ -1,7 +1,7 @@
-.header-container {
+.headers-container {
   display: flex;
   justify-content: space-between;
-  width: 85%;
+  width: 100%;
   align-items: center;
   background-color: #383838;
   padding: 1% 7.5%;
@@ -14,7 +14,7 @@
   font-size: 15px;
 }
 
-.header-content {
+.headers-content {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -50,7 +50,7 @@
     display: none;
   }
 
-  .header-container {
+  .headers-container {
     padding: 2% 2.5%;
     width: 95%;
   }

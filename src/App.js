@@ -1,9 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { SearchProvider } from './Components/SearchContext/index.js';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { SearchProvider } from "./Components/SearchContext/index.js";
 
 import Home from "./Components/Home/index.js";
-import Header from "./Components/Header/index.js";
 import MovieInDetails from "./Components/Movie/index.js";
 import PopularMovies from "./Components/PopularMovies/index.js";
 import TopRatedMovies from "./Components/TopRatedMovies/index.js";

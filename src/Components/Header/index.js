@@ -20,13 +20,13 @@ const Header = () => {
   };
 
   return (
-    <nav className="header-container">
+    <nav className="headers-container">
       <div>
         <Link to="/" className="header-link">
           <p className="header-heading">MovieDb</p>
         </Link>
       </div>
-      <div className="header-content">
+      <div className="headers-content">
         <Link className="header-link mob-view" to="/popular">
           <p>Popular</p>
         </Link>

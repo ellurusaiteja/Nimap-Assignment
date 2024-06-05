@@ -1,11 +1,16 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import Header from "../Header";
 import MovieDetails from "../MovieDetails";
-
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class Home extends Component {
-  state = { allMovies: [] };
+  state = {
+    allMovies: [],
+    currentPage: 1,
+    itemsPerPage: 12,
+  };
+
   componentDidMount() {
     this.getMovieDetails();
   }
@@ -37,18 +42,52 @@ class Home extends Component {
     this.setState({ allMovies: updatedData });
   };
 
+  getanother = () => {
+    const { allMovies, currentPage, itemsPerPage } = this.state;
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = allMovies.slice(indexOfFirstItem, indexOfLastItem);
+
+    return currentItems;
+  };
+
   render() {
-    const { allMovies } = this.state;
+    const { allMovies, currentPage, itemsPerPage } = this.state;
+    const currentItems = this.getanother();
+    const totalPages = Math.ceil(allMovies.length / itemsPerPage) || 1;
+
+    const paginate = (pageNumber) => {
+      this.setState({ currentPage: pageNumber });
+    };
+
     return (
       <div className="home-container">
         <Header />
         <div className="home-list-container">
           <ul className="unordered-list-home">
-            {allMovies.map((eachMovie) => (
+            {currentItems.map((eachMovie) => (
               <MovieDetails movieDetails={eachMovie} key={eachMovie.id} />
             ))}
           </ul>
         </div>
+        <nav>
+          <ul className="pagination">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <li
+                key={i + 1}
+                className={`page-item ${currentPage === i + 1 ? "active" : ""}`}
+              >
+                <a
+                  href="#"
+                  className="page-link"
+                  onClick={() => paginate(i + 1)}
+                >
+                  {i + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     );
   }

@@ -5,6 +5,8 @@ import "./index.css";
 const MovieCast = () => {
   const { id } = useParams();
   const [castDetails, setCastDetails] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
 
   useEffect(() => {
     const getCastDetails = async () => {
@@ -28,15 +30,28 @@ const MovieCast = () => {
       }));
       setCastDetails(updatedCastData);
     };
-
     getCastDetails();
   }, [id]);
 
+  const getCurrentItems = () => {
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = castDetails.slice(indexOfFirstItem, indexOfLastItem);
+
+    return currentItems;
+  };
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const currentItems = getCurrentItems();
+  const totalPages = Math.ceil(castDetails.length / itemsPerPage) || 1;
+
   return (
     <div className="casts-container">
-      {/* <h1>Movie Cast</h1> */}
       <ul className="unordered-cast-list">
-        {castDetails.map((eachCasts) => (
+        {currentItems.map((eachCasts) => (
           <li className="cast-list" key={eachCasts.id}>
             <img
               className="cast-image"
@@ -48,6 +63,24 @@ const MovieCast = () => {
           </li>
         ))}
       </ul>
+      <nav>
+        <ul className="pagination">
+          {Array.from({ length: totalPages }, (_, i) => (
+            <li
+              key={i + 1}
+              className={`page-item ${currentPage === i + 1 ? "active" : ""}`}
+            >
+              <a
+                href="#"
+                className="page-link"
+                onClick={() => paginate(i + 1)}
+              >
+                {i + 1}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };
